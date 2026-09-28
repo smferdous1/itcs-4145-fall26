@@ -6,7 +6,8 @@
 
 rm mmm 
 
-g++ -o mmm -O2 add-mmm.cpp
+g++ -o mmm -O2 mmm.cpp
 
-./mmm
+./mmm 1100
+./mmm 2000
 
