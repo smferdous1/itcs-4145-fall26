@@ -1,5 +1,4 @@
-/* ITCS 4145, pthreads Lecture 1, discussed in class (not on a frame).
-   Alternative correction: a fresh heap integer per thread. The thread
+/* Alternative correction: a fresh heap integer per thread. The thread
    frees it; the lifetime rule is satisfied because heap memory stays
    valid until freed. */
 #include <pthread.h>
