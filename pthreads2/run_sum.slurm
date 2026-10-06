@@ -26,7 +26,8 @@ OUT=sum_times.txt
   #  the correct program across thread counts.
   # 1..18 stay on one socket; 36 uses both sockets (NUMA not yet taught).
   for p in 1 2 4 8 12 18 36; do
-    ./sum_time $p local $N
+    #numactl --interleave=all ./sum_time  $p local $N
+    ./sum_time  $p local $N
   done
   echo
   #  false sharing. Same per-iteration store, slots on one line
