@@ -11,7 +11,7 @@ void *hello(void *arg) {
 }
 
 int main(void) {
-   int p = 16, i;
+   int p = 36, i;
    pthread_t thread[p];
    for (i = 0; i < p; i++)
       pthread_create(&thread[i], NULL, hello, &i);
