@@ -1,4 +1,4 @@
-/* ITCS 4145, pthreads Lecture 2, frame 4.
+/* ITCS 4145, pthreads Lecture 2
    First attempt: every thread adds its block into ONE shared variable.
    WRONG: the updates of sum race. */
 #include <pthread.h>
