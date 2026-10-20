@@ -1,0 +1,16 @@
+OpenMP Lecture 1 companion programs
+-----------------------------------
+hello0.c   Frame 2. One parallel region, printf only, no omp.h. Built twice:
+           without -fopenmp (gcc -Wall warns "ignoring #pragma omp parallel"
+           and the program prints one line) and with -fopenmp
+           (OMP_NUM_THREADS=4 ./hello0 prints four lines).
+           Outputs are deterministic; the frame needs no Centaurus run.
+hello.c    Frame 4. Parallel region; each thread prints "Hello world from
+           thread N of p" using omp_get_thread_num() and omp_get_num_threads().
+           Run with OMP_NUM_THREADS=4. Line order varies between runs
+           (10 distinct orders in 100 sandbox runs).
+threads.c  Frame 5. Three regions; thread 0 of each reports the team size.
+           OMP_NUM_THREADS=4 ./threads gives 4, 3, 2 (environment, then
+           omp_set_num_threads(3), then the num_threads(2) clause).
+           TO MEASURE on gal-c1: ./threads with OMP_NUM_THREADS unset; the
+           frame states the gcc default of one thread per core (36) as [TBD].
