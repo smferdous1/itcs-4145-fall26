@@ -19,10 +19,10 @@
 #include <string.h>
 #include <cublas_v2.h>
 
-#define CHECK(e) { cudaError_t r = (e); if (r != cudaSuccess) { \
-    fprintf(stderr, "%s:%d: %s\n", __FILE__, __LINE__, cudaGetErrorString(r)); exit(1); } }
-#define CHECKB(e) { cublasStatus_t r = (e); if (r != CUBLAS_STATUS_SUCCESS) { \
-    fprintf(stderr, "%s:%d: cuBLAS error %d\n", __FILE__, __LINE__, (int)r); exit(1); } }
+#define CHECK(e) { cudaError_t err_ = (e); if (err_ != cudaSuccess) { \
+    fprintf(stderr, "%s:%d: %s\n", __FILE__, __LINE__, cudaGetErrorString(err_)); exit(1); } }
+#define CHECKB(e) { cublasStatus_t st_ = (e); if (st_ != CUBLAS_STATUS_SUCCESS) { \
+    fprintf(stderr, "%s:%d: cuBLAS error %d\n", __FILE__, __LINE__, (int)st_); exit(1); } }
 
 /* The wrong program: the CPU habit. Each thread walks its own row. */
 __global__ void matvec_thread(const double *A, const double *x, double *y, int N) {

@@ -13,8 +13,8 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define CHECK(e) { cudaError_t r = (e); if (r != cudaSuccess) { \
-    fprintf(stderr, "%s:%d: %s\n", __FILE__, __LINE__, cudaGetErrorString(r)); exit(1); } }
+#define CHECK(e) { cudaError_t err_ = (e); if (err_ != cudaSuccess) { \
+    fprintf(stderr, "%s:%d: %s\n", __FILE__, __LINE__, cudaGetErrorString(err_)); exit(1); } }
 
 __global__ void matmul(float *A, float *B, float *C, int N) {
     int col = blockIdx.x * blockDim.x + threadIdx.x;
